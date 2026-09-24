@@ -1,8 +1,9 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
 
 .cabecalho {
     display: flex;
@@ -11,7 +12,7 @@
     padding: 1rem 2rem;
     background-color: #FFFFFF;
     border-bottom: 1px solid #E0E0E0;
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 10;
 }
@@ -61,8 +62,12 @@
 
 main {
     position: relative;
-     height: calc(100vh - 92px);
+    height: calc(100vh - 92px);
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 3rem;
 }
 
 .banner {
@@ -83,12 +88,10 @@ main::before {
 }
 
 .conteudo {
-    position: absolute;
-    top: 25%;
-    left: 15%;
     color: #FFFFFF;
     max-width: 500px;
-    z-index: 1;
+    margin-top: 10rem;
+    margin-left: 5%;
 }
 
 .conteudo h1 {
@@ -112,13 +115,6 @@ main::before {
 
 .descubra:hover {
     background-color: #1F8A9C;
-}
-
-.secao-evento {
-    position: absolute;
-    right: 3rem;
-    top: 3rem;
-    z-index: 1;
 }
 
 .proximo-evento {
@@ -220,4 +216,117 @@ main::before {
 
 .voltar-topo:hover {
     background-color: #2AAFC4;
+}
+
+.destaques {
+    display: grid;
+    grid-template-columns: repeat(3, 280px);
+    justify-content: center;
+    gap: 12rem;
+    padding: 4rem 12rem;
+    background-color: #F4F6F8;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    padding: 1rem 1.2rem 0.5rem;
+    color: #1B2A4A;
+}
+
+.card p {
+    padding: 0 1.2rem 1.2rem;
+    color: #2E2E2E;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .menus {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .menus ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        flex-direction: column;
+        height: auto;
+        padding: 1.5rem;
+    }
+
+    .banner {
+        position: static;
+        width: 100%;
+        height: 220px;
+        margin-bottom: 1.5rem;
+    }
+
+    main::before {
+        display: none;
+    }
+
+    .conteudo {
+        color: #2E2E2E;
+        margin: 0 0 2rem 0;
+        max-width: 100%;
+    }
+
+    .conteudo h1 {
+        color: #1B2A4A;
+    }
+
+    .proximo-evento {
+        width: 100%;
+    }
+
+    .destaques {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .rodape {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+    }
+
+    .secao-evento {
+        width: 100%;
+    }
+
+    .evento-corpo {
+        position: relative;
+        height: 480px;
+        min-height: 0;
+    }
+
+    .evento-texto {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+    }
 }
